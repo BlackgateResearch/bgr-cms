@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'bgr_cms.views.home', name='home'),
+    url(r'^$', 'cms.views.index', name='index'),
     # url(r'^bgr_cms/', include('bgr_cms.foo.urls')),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

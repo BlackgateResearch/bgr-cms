@@ -1,6 +1,7 @@
 # Django settings for bgr_cms project.
 import os
 
+import django
 import dj_database_url
 
 
@@ -63,7 +64,9 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = "%s/staticfiles" % os.getcwd()
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+
+STATIC_ROOT = os.path.join(DJANGO_ROOT, 'staticfiles')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -71,7 +74,6 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    '',
 )
 
 # List of finder classes that know how to find static files in
@@ -123,7 +125,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'django_extensions'
+    'django_extensions',
+    'cms'
 )
 
 # A sample logging configuration. The only tangible logging
